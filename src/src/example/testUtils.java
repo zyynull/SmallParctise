@@ -1,4 +1,7 @@
 package example;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 public class testUtils {
   /**
@@ -45,8 +48,24 @@ public class testUtils {
   ArrayList<HashMap<String, Object>> d = new ArrayList<HashMap<String, Object>>(new HashSet(a));
   System.out.println("need test ArrayList d:"+d);
 }
-
+  /**
+   * String转成Date
+   */
+  public static Date strToDate(String dateStr, String pattern) {
+    Date date = null;
+    if (dateStr != null && !"".equals(dateStr)) {
+      DateFormat format = new SimpleDateFormat(pattern);
+      try {
+        date = format.parse(dateStr);
+      } catch (ParseException e) {
+        e.printStackTrace();
+      }
+    }
+    return date;
+  }
   public static void main(String[] argv) {
+    Date date=new Date();
 
+    System.out.println(date.after(strToDate("2019-11-7 15:00:00", "yyyy-MM-dd HH:mm:ss")));
   }
 }
