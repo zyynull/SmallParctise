@@ -40,6 +40,7 @@ public class main {
         addScore(score,scoreTimes);
         Iterator<Integer> it = score.values().iterator();
         */
+
     /**
      * https://www.zhihu.com/club/1187410375191982080/post/1246837761598197760
      * 有限次怎么来的？只能递归
@@ -95,4 +96,52 @@ public class main {
         }
         return res.toString();
     }*/
+    class MyStack {
+        //使用队列实现栈的下列操作
+        /**
+         * MyStack obj = new MyStack();
+         * obj.push(x);
+         * int param_2 = obj.pop();
+         * int param_3 = obj.top();
+         * boolean param_4 = obj.empty();
+         */
+        Queue q = new LinkedList();
+
+        /**
+         * Initialize your data structure here.
+         */
+        public MyStack() {
+
+        }
+
+        /**
+         * Push element x onto stack.
+         */
+        public void push(int x) {
+            q.add(x);
+        }
+
+        /**
+         * Removes the element on top of the stack and returns that element.
+         */
+        public int pop() {
+            int pop = top();
+            q.remove(top());
+            return pop;
+        }
+
+        /**
+         * Get the top element.
+         */
+        public int top() {
+            return (int) q.peek();
+        }
+
+        /**
+         * Returns whether the stack is empty.
+         */
+        public boolean empty() {
+            return q.isEmpty();
+        }
+    }
 }
