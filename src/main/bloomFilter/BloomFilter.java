@@ -17,9 +17,13 @@ import java.util.BitSet;
  * 2.有容忍率的去重：比如爬给定网址的时候对已经爬取过的 URL 去重
  */
 public class BloomFilter {
+    /**
+     * 位数组
+     */
     private static final int DEFAULT_SIZE = 2 << 24;//布隆过滤器的比特长度
 
     /**
+     * k个哈希函数
      * string.hashcode s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1] 31
      * 这里要选取质数，能很好的降低错误率
      * {3, 5, 7, 11, 13, 31, 37, 61}
@@ -31,6 +35,9 @@ public class BloomFilter {
     private static SimpleHash[] func = new SimpleHash[seeds.length];
 
 
+    /**
+     * 方法：将当前元素添加到bloomfilter
+     */
     public static void addValue(String value) {
         for (SimpleHash f : func)//将字符串value哈希为8个或多个整数，然后在这些整数的bit上变为1
             bits.set(f.hash(value), true);
@@ -42,6 +49,9 @@ public class BloomFilter {
     }
 
 
+    /**
+     * 方法：判断当前元素是否在bloomfilter
+     */
     public static boolean contains(String value) {
         if (value == null) return false;
         boolean ret = true;
