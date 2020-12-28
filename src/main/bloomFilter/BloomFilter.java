@@ -27,6 +27,8 @@ public class BloomFilter {
      * string.hashcode s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1] 31
      * 这里要选取质数，能很好的降低错误率
      * {3, 5, 7, 11, 13, 31, 37, 61}
+     *
+     * 注意：误差率来源于两个地方，一个是hash的碰撞性，一个是位数组的重复性
      */
     private static final int[] seeds = {3, 5, 7, 11, 13, 31, 37, 61};
 
