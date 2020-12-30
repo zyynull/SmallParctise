@@ -29,6 +29,7 @@ public class BloomFilter {
      * {3, 5, 7, 11, 13, 31, 37, 61}
      *
      * 注意：误差率来源于两个地方，一个是hash的碰撞性，一个是位数组的重复性
+     * https://www.cnblogs.com/looyee/articles/11424208.html
      */
     private static final int[] seeds = {3, 5, 7, 11, 13, 31, 37, 61};
 
