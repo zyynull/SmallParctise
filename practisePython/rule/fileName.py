@@ -18,7 +18,7 @@ def get_all(cwd):
             get_all(sub_dir)
 
         else:
-            # or i.match("", i)
+            # or i.match('.rfl', i).span()
             if i == ".entries" or i == ".rulepackage":
                 continue
             else:
@@ -28,8 +28,5 @@ def get_all(cwd):
 
 
 get_all('/Users/admin/git/cmft/rules/uw/UWRules/规则')
-print("all_file_path_list")
-print(all_file_path_list)
-print("---------------------------------------------------------------------")
-print("all_file_sub_dir_list")
-print(all_file_sub_dir_list)
+for var in all_file_path_list:
+    print(var, '\n')
